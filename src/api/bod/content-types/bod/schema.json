@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bods",
+  "info": {
+    "singularName": "bod",
+    "pluralName": "bods",
+    "displayName": "bod"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Post": {
+      "type": "string",
+      "required": true
+    },
+    "Role": {
+      "type": "string",
+      "required": true
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Committee of Administration\t",
+        "Board of Directors"
+      ],
+      "required": true
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_partner_section_layouts",
+  "info": {
+    "displayName": "Layout",
+    "icon": "crop",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "PartnerSectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "PartnerSectionDescription": {
+      "type": "text",
+      "required": false
+    },
+    "Partner": {
+      "displayName": "Partner",
+      "type": "component",
+      "repeatable": true,
+      "component": "partner.partner",
+      "required": true
+    }
+  }
+}

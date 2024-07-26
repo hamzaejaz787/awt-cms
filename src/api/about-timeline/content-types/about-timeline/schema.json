@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_timelines",
+  "info": {
+    "singularName": "about-timeline",
+    "pluralName": "about-timelines",
+    "displayName": "AboutTimeline"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Year": {
+      "type": "integer",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
