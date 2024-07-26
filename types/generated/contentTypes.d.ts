@@ -825,7 +825,8 @@ export interface ApiBodBod extends Schema.CollectionType {
   info: {
     singularName: 'bod';
     pluralName: 'bods';
-    displayName: 'bod';
+    displayName: 'Board Of Directors';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -914,7 +915,7 @@ export interface ApiHomepageHomepage extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
-    Text: Attribute.Text & Attribute.Required;
+    Text: Attribute.Text;
     Image: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
