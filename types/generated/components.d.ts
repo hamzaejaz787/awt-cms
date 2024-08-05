@@ -34,7 +34,7 @@ export interface PartnerSectionLayout extends Schema.Component {
   attributes: {
     PartnerSectionTitle: Attribute.String & Attribute.Required;
     PartnerSectionDescription: Attribute.Text;
-    Partner: Attribute.Component<'partner.partner', true> & Attribute.Required;
+    Partner: Attribute.Component<'partner.partner', true>;
   };
 }
 
@@ -50,6 +50,19 @@ export interface PartnerPartner extends Schema.Component {
   };
 }
 
+export interface ContactInfoContactInfo extends Schema.Component {
+  collectionName: 'components_contact_info_contact_infos';
+  info: {
+    displayName: 'Contact Info';
+    icon: 'phone';
+  };
+  attributes: {
+    email: Attribute.String & Attribute.Required;
+    number: Attribute.String & Attribute.Required;
+    address: Attribute.Text & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -57,6 +70,7 @@ declare module '@strapi/types' {
       'service.service': ServiceService;
       'partner-section.layout': PartnerSectionLayout;
       'partner.partner': PartnerPartner;
+      'contact-info.contact-info': ContactInfoContactInfo;
     }
   }
 }

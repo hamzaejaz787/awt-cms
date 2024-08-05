@@ -28,7 +28,8 @@
         "Public Listed Company",
         "Private Limited Company",
         "Other Trust Unit"
-      ]
+      ],
+      "required": true
     },
     "PageTitle": {
       "type": "string",
@@ -69,27 +70,34 @@
       ]
     },
     "BannerImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Image1": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Image2": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "contact": {
+      "displayName": "Contact Info",
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-info.contact-info",
       "required": true
     }
   }

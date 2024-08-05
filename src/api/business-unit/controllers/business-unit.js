@@ -47,6 +47,7 @@ module.exports = createCoreController(
             BannerImage: { fields: ["name", "url", "alternativeText"] },
             Image1: { fields: ["name", "url", "alternativeText"] },
             Image2: { fields: ["name", "url", "alternativeText"] },
+            contact: { populate: true },
           },
         });
 

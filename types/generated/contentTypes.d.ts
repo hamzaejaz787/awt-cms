@@ -872,7 +872,8 @@ export interface ApiBusinessUnitBusinessUnit extends Schema.CollectionType {
         'Private Limited Company',
         'Other Trust Unit'
       ]
-    >;
+    > &
+      Attribute.Required;
     PageTitle: Attribute.String & Attribute.Required;
     SliderCardDescription: Attribute.Text & Attribute.Required;
     PageDescription: Attribute.Text & Attribute.Required;
@@ -884,6 +885,8 @@ export interface ApiBusinessUnitBusinessUnit extends Schema.CollectionType {
     BannerImage: Attribute.Media<'images'> & Attribute.Required;
     Image1: Attribute.Media<'images'> & Attribute.Required;
     Image2: Attribute.Media<'images'> & Attribute.Required;
+    contact: Attribute.Component<'contact-info.contact-info'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -895,6 +898,39 @@ export interface ApiBusinessUnitBusinessUnit extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::business-unit.business-unit',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: 'Gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::gallery.gallery', 'title'> & Attribute.Required;
+    cover: Attribute.Media<'images'> & Attribute.Required;
+    GalleryItems: Attribute.Media<'images', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
       'oneToOne',
       'admin::user'
     > &
@@ -1022,6 +1058,7 @@ declare module '@strapi/types' {
       'api::about-timeline.about-timeline': ApiAboutTimelineAboutTimeline;
       'api::bod.bod': ApiBodBod;
       'api::business-unit.business-unit': ApiBusinessUnitBusinessUnit;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::md-message.md-message': ApiMdMessageMdMessage;
       'api::resource.resource': ApiResourceResource;
