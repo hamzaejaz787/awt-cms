@@ -1011,13 +1011,14 @@ export interface ApiResourceResource extends Schema.CollectionType {
     singularName: 'resource';
     pluralName: 'resources';
     displayName: 'Resource';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
-    Description: Attribute.String & Attribute.Required;
+    Description: Attribute.Text & Attribute.Required;
     Image: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -16,10 +16,11 @@ export interface ServiceService extends Schema.Component {
   collectionName: 'components_service_services';
   info: {
     displayName: 'Service';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
-    Description: Attribute.String;
+    Description: Attribute.Text;
     Image: Attribute.Media<'images'>;
   };
 }
@@ -42,10 +43,11 @@ export interface PartnerPartner extends Schema.Component {
   collectionName: 'components_partner_partners';
   info: {
     displayName: 'Partner';
+    description: '';
   };
   attributes: {
     Title: Attribute.String & Attribute.Required;
-    Description: Attribute.Text & Attribute.Required;
+    Description: Attribute.Text;
     Image: Attribute.Media<'images'>;
   };
 }
