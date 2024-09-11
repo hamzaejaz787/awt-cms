@@ -2,7 +2,8 @@
   "collectionName": "components_contact_info_contact_infos",
   "info": {
     "displayName": "Contact Info",
-    "icon": "phone"
+    "icon": "phone",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,9 @@
     "address": {
       "type": "text",
       "required": true
+    },
+    "website": {
+      "type": "string"
     }
   }
 }

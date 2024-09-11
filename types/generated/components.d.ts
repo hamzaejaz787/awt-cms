@@ -57,11 +57,13 @@ export interface ContactInfoContactInfo extends Schema.Component {
   info: {
     displayName: 'Contact Info';
     icon: 'phone';
+    description: '';
   };
   attributes: {
     email: Attribute.String & Attribute.Required;
     number: Attribute.String & Attribute.Required;
     address: Attribute.Text & Attribute.Required;
+    website: Attribute.String;
   };
 }
 
