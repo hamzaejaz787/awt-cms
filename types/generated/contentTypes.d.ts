@@ -905,6 +905,40 @@ export interface ApiBusinessUnitBusinessUnit extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactInfoContactInfo extends Schema.CollectionType {
+  collectionName: 'contact_infos';
+  info: {
+    singularName: 'contact-info';
+    pluralName: 'contact-infos';
+    displayName: 'Contact Info';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    address: Attribute.Text & Attribute.Required;
+    email: Attribute.String & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGalleryGallery extends Schema.CollectionType {
   collectionName: 'galleries';
   info: {
@@ -1059,6 +1093,7 @@ declare module '@strapi/types' {
       'api::about-timeline.about-timeline': ApiAboutTimelineAboutTimeline;
       'api::bod.bod': ApiBodBod;
       'api::business-unit.business-unit': ApiBusinessUnitBusinessUnit;
+      'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::md-message.md-message': ApiMdMessageMdMessage;
