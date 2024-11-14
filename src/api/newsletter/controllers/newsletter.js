@@ -16,7 +16,7 @@ module.exports = createCoreController(
         .findOne({
           where: { slug: id },
           populate: {
-            cover: { fields: ["name", "url", "alternativeText"] },
+            CoverImage: { fields: ["name", "url", "alternativeText"] },
             Pages: { fields: ["name", "url", "alternativeText"] },
           },
         });
