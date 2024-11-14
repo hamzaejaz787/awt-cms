@@ -939,6 +939,36 @@ export interface ApiContactInfoContactInfo extends Schema.CollectionType {
   };
 }
 
+export interface ApiCorporateProfileCorporateProfile extends Schema.SingleType {
+  collectionName: 'corporate_profiles';
+  info: {
+    singularName: 'corporate-profile';
+    pluralName: 'corporate-profiles';
+    displayName: 'Corporate Profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    CorporateProfile: Attribute.Media<'files'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::corporate-profile.corporate-profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::corporate-profile.corporate-profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGalleryGallery extends Schema.CollectionType {
   collectionName: 'galleries';
   info: {
@@ -1039,6 +1069,39 @@ export interface ApiMdMessageMdMessage extends Schema.SingleType {
   };
 }
 
+export interface ApiNewsletterNewsletter extends Schema.CollectionType {
+  collectionName: 'newsletters';
+  info: {
+    singularName: 'newsletter';
+    pluralName: 'newsletters';
+    displayName: 'Newsletter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::newsletter.newsletter', 'Title'>;
+    CoverImage: Attribute.Media<'images'> & Attribute.Required;
+    Pages: Attribute.Media<'images', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::newsletter.newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::newsletter.newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiResourceResource extends Schema.CollectionType {
   collectionName: 'resources';
   info: {
@@ -1094,9 +1157,11 @@ declare module '@strapi/types' {
       'api::bod.bod': ApiBodBod;
       'api::business-unit.business-unit': ApiBusinessUnitBusinessUnit;
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
+      'api::corporate-profile.corporate-profile': ApiCorporateProfileCorporateProfile;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::md-message.md-message': ApiMdMessageMdMessage;
+      'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'api::resource.resource': ApiResourceResource;
     }
   }

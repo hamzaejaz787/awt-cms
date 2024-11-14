@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "corporate_profiles",
+  "info": {
+    "singularName": "corporate-profile",
+    "pluralName": "corporate-profiles",
+    "displayName": "Corporate Profile"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CorporateProfile": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
